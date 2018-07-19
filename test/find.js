@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const url = "mongodb://localhost:27017/";
 const MongoClient = require('mongodb').MongoClient;
-const mongo = require('../src/mongo.js')(url);
+const mongo = require('../lib/mongo.js')(url);
 
 const DATABASE = "test";
 const COLLECTION = "test";
