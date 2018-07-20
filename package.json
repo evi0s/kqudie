@@ -1,8 +1,8 @@
 {
-  "name": "mongo",
-  "version": "0.0.7",
+  "name": "kqudie",
+  "version": "0.0.8",
   "description": "",
-  "main": "lib/mongo.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "mocha"
   },
