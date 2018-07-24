@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 
 const url = "mongodb://localhost:27017/";
 const MongoClient = require('mongodb').MongoClient;
-const mongo = require('../lib/mongo.js')(url);
+const mongo = require('../lib')(url);
 
 const DATABASE = "test";
 const COLLECTION = "test";
@@ -30,13 +30,14 @@ describe('find', function () {
         }
     });
 
-    it('test', function () {
-        let data = mongo.find(DATABASE, COLLECTION, {}, {}, function (err, data) {
-            if (err) throw err;
+    it('test', async function () {
+        let data = await mongo.find(DATABASE, COLLECTION, {
+            find: {}, sort: {}
+        })
 
-            expect(data[0].a).to.be.equal(1);
-            expect(data[1].a).to.be.equal(2);
-            expect(data[2].a).to.be.equal(3);
-        });
+        expect(data).to.have.lengthOf(3);
+        expect(data[0].a).to.equal(1);
+        expect(data[1].a).to.equal(2);
+        expect(data[2].a).to.equal(3);
     });
 });
