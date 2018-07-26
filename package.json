@@ -1,12 +1,12 @@
 {
   "name": "kqudie",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha -t 5000"
   },
-  "author": "",
+  "author": "hwfhc EightWeight",
   "license": "MIT",
   "dependencies": {
     "mongodb": "^3.0.7"
