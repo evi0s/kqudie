@@ -2,6 +2,7 @@ const expect = require('chai').expect;
 
 const url = "mongodb://localhost:27017/";
 const MongoClient = require('mongodb').MongoClient;
+
 const mongo = require('../lib')(url);
 
 const DATABASE = "test";
@@ -11,7 +12,11 @@ describe('remove', function () {
     before(async function () {
         try {
             let collect = await getCollect();
+
             await collect.deleteMany({});
+            await collect.insertMany([
+                { a: 1 }, { a: 2 }, { a: 3 }
+            ]);
         } catch (err) {
             throw err;
         }
