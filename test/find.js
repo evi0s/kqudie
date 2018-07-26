@@ -33,7 +33,7 @@ describe('find', function () {
     it('test', async function () {
         let data = await mongo.find(DATABASE, COLLECTION, {
             find: {}, sort: {}
-        })
+        });
 
         expect(data).to.have.lengthOf(3);
         expect(data[0].a).to.equal(1);
