@@ -1,4 +1,4 @@
 language: node_js
 node_js:
   - "10"
-after_script: npm install istanbul@next --save-dev && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 5000 --exit && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
+after_script: npm install istanbul@next --save-dev && istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec -t 5000 --exit && npm install coveralls --save-dev && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
