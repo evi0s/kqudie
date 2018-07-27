@@ -1,4 +1,8 @@
 # mongo
+
+[![Build Status](https://travis-ci.org/brummp/kqudie.svg?branch=testing)](https://travis-ci.org/brummp/kqudie)
+[![Coverage Status](https://coveralls.io/repos/github/brummp/kqudie/badge.svg?branch=master)](https://coveralls.io/github/brummp/kqudie?branch=master)
+
 Node.js MongoDB module
 
 ## Usage
