@@ -1,6 +1,6 @@
 const expect = require('chai').expect;
 
-const url = "mongodb://www.lrworkshop.xin:27017/";
+const url = "mongodb://localhost:27017/";
 const MongoClient = require('mongodb').MongoClient;
 
 const mongo = require('../lib')(url);
