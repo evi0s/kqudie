@@ -8,7 +8,7 @@ const mongo = require('../lib')(url);
 const DATABASE = "test";
 const COLLECTION = "test";
 
-describe('remove', function () {
+describe('removespc', function () {
     before(async function () {
         try {
             let collect = await getCollect();
