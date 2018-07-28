@@ -7,7 +7,7 @@ const mongo = require('../lib')(url);
 const DATABASE = "test";
 const COLLECTION = "test";
 
-describe('insert', function () {
+describe('insertmany', function () {
     before(async function () {
         try {
             let collect = await getCollect();
