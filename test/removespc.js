@@ -31,7 +31,7 @@ describe('remove', function () {
             let result2 = await collect.find({ a : 1 }).sort({}).toArray();
 
             expect(result).to.have.lengthOf(2);
-            expect(result2).to.hava.lengthOf(0);
+            expect(result2).to.have.lengthOf(0);
         } catch (error) {
             throw error;
         }
