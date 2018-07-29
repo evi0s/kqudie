@@ -7,7 +7,7 @@ const mongo = require('../lib')(url);
 const DATABASE = "test";
 const COLLECTION = "test";
 
-describe('find', function () {
+describe('findspc', function () {
     before(async function () {
         let connect = null;
 
@@ -31,11 +31,12 @@ describe('find', function () {
     });
 
     it('test', async function () {
-        let data = await mongo.find(DATABASE, COLLECTION);
+        let data = await mongo.find(DATABASE, COLLECTION, {
+          find: { a : 1 },
+          sort: {}
+        });
 
-        expect(data).to.have.lengthOf(3);
+        expect(data).to.have.lengthOf(1);
         expect(data[0].a).to.equal(1);
-        expect(data[1].a).to.equal(2);
-        expect(data[2].a).to.equal(3);
     });
 });
