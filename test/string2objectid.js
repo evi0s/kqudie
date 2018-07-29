@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const ObjectId = require('mongodb').ObjectId;
 
-const mongo = require('../lib');
+const mongo = require('../lib')();
 
 describe('string2objectid', function () {
 
