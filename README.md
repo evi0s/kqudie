@@ -12,100 +12,144 @@ Not updated yet
 ## Usage
 
 ```js
-var url = "mongodb://172.17.0.3:27017";
-var mongo = require('./mongo.js')(url);
+var url = "mongodb://mongo:27017";
+var mongo = require('kqudie')(url);
 ```
 
 ### mongo.find
 
-```js
-var findobj = {};
+#### Params
+* database *string*
+* collection *string*
+* option.find *json object*
+* option.sort sort options *json object*
 
-mongo.find(database,collection,findobj,function(err,results){
-  if(err) console.log(err);
-  console.log(results);
-});
+#### Demo
+
+```js
+var option = {};
+var data = mongo.find(database,collection,option);
 ```
-Result will be a json object
+
+#### Return
+
+Return Json object.
 
 ### mongo.String2ObjectId
 
+#### Param
+* str *string*
+
+#### Demo
+
 ```js
 var str = "5b1e7f1e24e8ab001663b37a";
-
 var oid = mongo.String2ObjectId(str);
 ```
-Result will be a ObjectId object
+
+#### Return
+Return ObjectId object
 
 ### mongo.ObjectId2String
 
+#### Param
+* oid *ObjectId object*
+
+#### Demo
+
 ```js
 var oid = new ObjectId();
-
 var str = mongo.ObjectId2String(oid);
 ```
-Result will be a String
+
+#### Return
+Return string
 
 ### mongo.ObjectId2UnixTimeStamp
 
+#### Param
+* oid *ObjectId object*
+
+#### Demo
+
 ```js
 var oid = new ObjectId("5b1e7f1e24e8ab001663b37a");
-
 var unixtimestamp = mongo.ObjectId2UnixTimeStamp(oid);
 ```
-Result will be unix timestamp
 
-### mongo.insertOne
+#### Return
+Return Unix Time Stamp
 
-```js
-mongo.insertOne(database,collection,insertobj,function(err,results){
-  if(err) console.log(err);
-  console.log(results);
-});
-```
-Result will be a json object
+### mongo.insert
 
-Use results.insertedCount or results.insertedId
+#### Params
+* database *string*
+* collection *string*
+* insertjson *json or json array*
 
-### mongo.insertMany
+#### Demo
 
 ```js
-mongo.insertMany(database,collection,insertarr,function(err,results){
-  if(err) console.log(err);
-  console.log(results);
-});
+var insertjson = { 'title' : 'test' , 'value' : true };
+var data = mongo.insert(database, collection, insertjson);
 ```
-Result will be a json object
 
-Use results.insertedCount or results.insertedIds
+```js
+var insertjson = [{ 'title' : 'test1' , 'value' : true }, { 'title' : 'test2' , 'value' : false }];
+var data = mongo.insert(database, collection, insertjson);
+```
+
+#### Return
+
+Return json object
+
+Use data.insertedCount or data.insertedId
 
 ### mongo.update
 
-```js
-var options = {upsert:<bool>, multi:<bool>};
-//upsert : if query not matched, insert it
-//multi: if query matched many, update them
+#### Params
+* database *string*
+* collection *string*
+* queryjson *bson object*
+* updatejson *bson object* 
+* option.upsert if query not matched, insert it *bool* **Default: true**
+* option.multi if query matched many, update them *bool* **Default: false**
 
-mongo.update(database,collection,query_json,update_json,options,function(err,results){
-  if(err) console.log(err);
-  console.log(results);
-});
+#### Demo
+
+```js
+var queryjson = { 'title' : 'test' };
+var updatejson = { 'title' : 'test' , 'value' : true };
+var option = {};
+var data = mongo.update(database, collection, queryjson, updatejson, option);
 ```
-Result will be a json object
+
+#### Return
+
+Return json object
 
 Use results.result.n to get changes
 
 ### mongo.remove
 
-```js
-var options = {justOne:<bool>};
-//justOne : if delete_json matched many, delete them
+#### Params
+* database *string*
+* collection
+* option.delete *json object* **Default: {}**
+* option.deleteAll *bool* **Default: false**
 
-mongo.remove(database,collection,delete_json,options,function(err,results){
-  if(err) console.log(err);
-  console.log(results);
-});
+**Warning: If you forget to pass a 'delete' json in 'option', it will delete all the docs in the collection!**
+
+#### Demo
+
+```js
+var option = {
+                'delete' : { 'title' : 'test' },
+                'deleteAll' : false
+              };
+var data = mongo.remove(database, collection, option);
 ```
-Result will be a json object
+#### Return
+Return json object
 
 Use results.result.n to get changes
