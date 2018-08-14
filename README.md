@@ -1,9 +1,13 @@
-# mongo
+# kqudie
 
-[![Build Status](https://travis-ci.org/brummp/kqudie.svg?branch=master)](https://travis-ci.org/brummp/kqudie)
-[![Coverage Status](https://coveralls.io/repos/github/brummp/kqudie/badge.svg)](https://coveralls.io/github/brummp/kqudie)
+[![Build Status](https://travis-ci.org/evi0s/kqudie.svg?branch=master)](https://travis-ci.org/evi0s/kqudie)
+[![Coverage Status](https://coveralls.io/repos/github/evi0s/kqudie/badge.svg)](https://coveralls.io/github/evi0s/kqudie)
 
 Node.js MongoDB module
+
+**Old version document**
+
+Not updated yet
 
 ## Usage
 
