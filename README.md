@@ -5,10 +5,6 @@
 
 Node.js MongoDB module
 
-**Old version document**
-
-Not updated yet
-
 ## Usage
 
 ```js
@@ -19,10 +15,10 @@ var mongo = require('kqudie')(url);
 ### mongo.find
 
 #### Params
-* database *string*
-* collection *string*
-* option.find *json object*
-* option.sort sort options *json object*
+* database   *string*
+* collection   *string*
+* option.find   *json object*
+* option.sort   sort options   *json object*
 
 #### Demo
 
@@ -38,7 +34,7 @@ Return Json object.
 ### mongo.String2ObjectId
 
 #### Param
-* str *string*
+* str   *string*
 
 #### Demo
 
@@ -68,7 +64,7 @@ Return string
 ### mongo.ObjectId2UnixTimeStamp
 
 #### Param
-* oid *ObjectId object*
+* oid   *ObjectId object*
 
 #### Demo
 
@@ -83,9 +79,9 @@ Return Unix Time Stamp
 ### mongo.insert
 
 #### Params
-* database *string*
-* collection *string*
-* insertjson *json or json array*
+* database   *string*
+* collection   *string*
+* insertjson   *json or json array*
 
 #### Demo
 
@@ -101,19 +97,19 @@ var data = mongo.insert(database, collection, insertjson);
 
 #### Return
 
-Return json object
+Return Json object
 
 Use data.insertedCount or data.insertedId
 
 ### mongo.update
 
 #### Params
-* database *string*
-* collection *string*
-* queryjson *bson object*
-* updatejson *bson object* 
-* option.upsert if query not matched, insert it *bool* **Default: true**
-* option.multi if query matched many, update them *bool* **Default: false**
+* database   *string*
+* collection   *string*
+* queryjson   *bson object*
+* updatejson   *bson object* 
+* option.upsert   If query not matched, insert it   *bool*   **Default: true**
+* option.multi   If query matched many, update them   *bool*   **Default: false**
 
 #### Demo
 
@@ -126,17 +122,17 @@ var data = mongo.update(database, collection, queryjson, updatejson, option);
 
 #### Return
 
-Return json object
+Return Json object
 
-Use results.result.n to get changes
+Use data.result.n to get changes
 
 ### mongo.remove
 
 #### Params
-* database *string*
-* collection
-* option.delete *json object* **Default: {}**
-* option.deleteAll *bool* **Default: false**
+* database   *string*
+* collection   *string*
+* option.delete   *json object*   **Default: {}**
+* option.deleteAll   *bool*   **Default: false**
 
 **Warning: If you forget to pass a 'delete' json in 'option', it will delete all the docs in the collection!**
 
@@ -150,6 +146,6 @@ var option = {
 var data = mongo.remove(database, collection, option);
 ```
 #### Return
-Return json object
+Return Json object
 
-Use results.result.n to get changes
+Use data.result.n to get changes
